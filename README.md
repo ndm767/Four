@@ -13,4 +13,10 @@ An (**incomplete**) 4d rendering library written in C++
 Replace the GL3W include in object.h with wherever you gl3w.h file is located.  
 When compiling, include the C++ files in the include/ directory and use the compiler flags for glfw3 and gl3w.  
 **This library uses C++11 features**  
-More detailed instructions are coming later, but for now, see pchoron.cpp and test.cpp for examples.  
+More detailed instructions are coming later, but for now, see pchoron.cpp and test.cpp for examples.
+## Dependencies
+- OpenGL 3.3
+- GLFW3
+- GL3W
+- GLM
+- Dear ImGui (planned)  
