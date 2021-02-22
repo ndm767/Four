@@ -8,6 +8,7 @@ An (**incomplete**) 4d rendering library written in C++
 - Camera Controls
 - Dear ImGui integration
 - File/model loading
+- Premade geometries (hypercubes and pentachorons)
 ## How to use
 Replace the GL3W include in object.h with wherever you gl3w.h file is located.  
 When compiling, include the C++ files in the include/ directory and use the compiler flags for glfw3 and gl3w.  
