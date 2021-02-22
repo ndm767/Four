@@ -6,49 +6,6 @@ vec5 tri[3] = {
     vec5(0.0f, 1.0f, -0.1f, 0.0f, 1.0f)
 };
 
-vec5 pentachoron[30] = {
-    //tri 1
-    vec5(0.0f, 0.5f, 0.0f, 0.0f, 1.0f), //1
-    vec5(-0.5f, 0.0f, 0.0f, 0.0f, 1.0f), //2
-    vec5(0.5f, 0.0f, 0.0f, 0.0f, 1.0f), //3
-    //z-tri 1(fill out)
-    vec5(0.0f, 0.0f, -0.5f, 0.0f, 1.0f), //4
-    vec5(-0.5f, 0.0f, 0.0f, 0.0f, 1.0f), //2
-    vec5(0.5f, 0.0f, 0.0f, 0.0f, 1.0f), //3
-    //z-tri 2
-    vec5(0.0f, 0.0f, -0.5f, 0.0f, 1.0f), //4
-    vec5(0.0f, 0.5f, 0.0f, 0.0f, 1.0f), //1
-    vec5(-0.5f, 0.0f, 0.0f, 0.0f, 1.0f), //2
-    //z-tri 3
-    vec5(0.0f, 0.0f, -0.5f, 0.0f, 1.0f), //4
-    vec5(0.0f, 0.5f, 0.0f, 0.0f, 1.0f), //1
-    vec5(0.5f, 0.0f, 0.0f, 0.0f, 1.0f), //3
-    //w-tri 12(fill out)
-    vec5(0.0f, 0.0f, 0.0f, -0.5f, 1.0f), //5
-    vec5(0.0f, 0.5f, 0.0f, 0.0f, 1.0f), //1
-    vec5(-0.5f, 0.0f, 0.0f, 0.0f, 1.0f), //2
-    //w-tri 13
-    vec5(0.0f, 0.0f, 0.0f, -0.5f, 1.0f), //5
-    vec5(0.0f, 0.5f, 0.0f, 0.0f, 1.0f), //1
-    vec5(0.5f, 0.0f, 0.0f, 0.0f, 1.0f), //3
-    //w-tri 14
-    vec5(0.0f, 0.0f, 0.0f, -0.5f, 1.0f), //5
-    vec5(0.0f, 0.5f, 0.0f, 0.0f, 1.0f), //1
-    vec5(0.0f, 0.0f, -0.5f, 0.0f, 1.0f), //4
-    //w-tri 23
-    vec5(0.0f, 0.0f, 0.0f, -0.5f, 1.0f), //5
-    vec5(-0.5f, 0.0f, 0.0f, 0.0f, 1.0f), //2
-    vec5(0.5f, 0.0f, 0.0f, 0.0f, 1.0f), //3
-    //w-tri 24
-    vec5(0.0f, 0.0f, 0.0f, -0.5f, 1.0f), //5
-    vec5(-0.5f, 0.0f, 0.0f, 0.0f, 1.0f), //2
-    vec5(0.0f, 0.0f, -0.5f, 0.0f, 1.0f), //4
-    //w-tri 34
-    vec5(0.0f, 0.0f, 0.0f, -0.5f, 1.0f), //5
-    vec5(0.5f, 0.0f, 0.0f, 0.0f, 1.0f), //3
-    vec5(0.0f, 0.0f, -0.5f, 0.0f, 1.0f) //4
-};
-
 vec5 pcVerts[5] = {
     vec5(0.0f, 0.5f, 0.0f, 0.0f, 1.0f), //0
     vec5(-0.5f, 0.0f, 0.0f, 0.0f, 1.0f), //1
@@ -85,9 +42,7 @@ int main(int argc, char* argv[]){
     w.setActiveCamera(&c);
 
     Object o;
-    //o.create(pentachoron, 30);
     o.create(pcVerts, 5, pcInds, 30);
-    //o.setCustomColor(&triColors[0], 3);
     //o.setUniformColor(glm::vec4(1.0f, 0.0f, 1.0f, 1.0f));
     w.addToScene(&o);
 
