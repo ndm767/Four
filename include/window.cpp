@@ -110,6 +110,10 @@ void Window::clear(float r, float g, float b, float a){
  * Goes through all of the objects in the scene and renders them, first applying any uniforms needed. It then swaps the buffers and polls events.
  */
 void Window::update(){
+    GLuint wpLoc = glGetUniformLocation(wireframeProgram, "viewportSize");
+    GLuint sLoc = glGetUniformLocation(solidProgram, "viewportSize");
+    glUniform2fv(wpLoc, 1, &viewportSize[0]);
+    glUniform2fv(sLoc, 1, &viewportSize[0]);
     for(int i = 0; i<objects.size(); i++){
         this->assignUniformMat4(objects[i]->modelMat, "modelMat");
         if(objects[i]->useColor){
@@ -197,20 +201,18 @@ void Window::createShaders(){
         layout (lines) in;
         layout (triangle_strip, max_vertices = 4) out;
 
-        uniform vec2  u_viewportSize = vec2(1600, 1600);
-        uniform float u_thickness = 4;
+        uniform vec2 viewportSize;
+        uniform float thickness = 2;
 
         in vec4 gCol[];
         out vec4 fCol;
 
-        void main()
-        {
-
+        void main(){
             vec4 p1 = gl_in[0].gl_Position;
             vec4 p2 = gl_in[1].gl_Position;
 
-            vec2 dir    = normalize((p2.xy - p1.xy) * u_viewportSize);
-            vec2 offset = vec2(-dir.y, dir.x) * u_thickness / u_viewportSize;
+            vec2 dir = normalize((p2.xy - p1.xy) * viewportSize);
+            vec2 offset = vec2(-dir.y, dir.x) * thickness / viewportSize;
 
             gl_Position = p1 + vec4(offset.xy * p1.w, 0.0, 0.0);
             fCol = gCol[0];
@@ -277,6 +279,11 @@ void Window::createShaders(){
         glGetProgramInfoLog(wireframeProgram, 512, NULL, infoLog);
         throwError("wireframe shader link error!", infoLog, true);
     }
+
+    //set viewport size
+    int viewPort[4];
+    glGetIntegerv(GL_VIEWPORT, &viewPort[0]);
+    viewportSize = glm::vec2(viewPort[2], viewPort[3]);
 
     glDeleteShader(vertexShader);
     glDeleteShader(fragmentShader);
