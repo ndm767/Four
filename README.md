@@ -16,7 +16,7 @@ When compiling, include the C++ files in the include/ directory and use the comp
 More detailed instructions are coming later, but for now, see pchoron.cpp and test.cpp for examples.
 ## Dependencies
 - OpenGL 3.3
-- GLFW3
-- GL3W
-- GLM
+- [GLFW3](https://www.glfw.org/)
+- [GL3W](https://github.com/skaslev/gl3w)
+- [GLM](https://github.com/g-truc/glm)
 - Dear ImGui (planned)  
