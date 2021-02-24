@@ -1,7 +1,7 @@
 # Four
 An (**incomplete**) 4d rendering library written in C++
 Example: A pentachoron (5-cell) rotating about the yw-plane:  
-![pchoron](https://raw.githubusercontent.com/ndm767/Four/main/pchoronYW.gif =201x211)
+<img src="https://raw.githubusercontent.com/ndm767/Four/main/pchoronYW.gif" alt="pchoron" width="201" height="211"> 
 ## What still needs to be done
 - Write documentation
 - Get rid of flickering bug in solid mode
