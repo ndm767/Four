@@ -124,11 +124,11 @@ void Window::update(){
         if(renderSolid){
             this->assignUniformVec4(objects[i]->constColor, "constCol");
             this->useShader(true);
-            objects[i]->render(true);
+            objects[i]->render(true, perspective);
         }else{
             this->assignUniformVec4(objects[i]->constColor, "constCol");
             this->useShader(false);
-            objects[i]->render(false);
+            objects[i]->render(false, perspective);
         }
     }
 
@@ -354,5 +354,21 @@ Window::renderMode Window::getRenderMode(){
         return Window::RENDER_SOLID;
     }else{
         return Window::RENDER_WIREFRAME;
+    }
+}
+
+void Window::set4DProjection(projection proj){
+    if(proj == PROJECT_ORTHOGRAPHIC){
+        perspective = false;
+    }else{
+        perspective = true;
+    }
+}
+
+Window::projection Window::get4DProjection(){
+    if(perspective){
+        return PROJECT_PERSPECTIVE;
+    }else{
+        return PROJECT_ORTHOGRAPHIC;
     }
 }

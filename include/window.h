@@ -48,12 +48,17 @@ public:
     void setRenderMode(renderMode mode);
     renderMode getRenderMode();
 
+    enum projection{PROJECT_ORTHOGRAPHIC, PROJECT_PERSPECTIVE};
+    void set4DProjection(projection proj);
+    projection get4DProjection();
+
 private:
     int width, height;
     const char* name;
     GLFWwindow* window;
     std::vector<Object*> objects;
     Camera *c;
+    bool perspective = false;
     bool renderSolid;
     void createShaders();
     void useShader(bool solid);

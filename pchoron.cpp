@@ -36,13 +36,13 @@ int main(int argc, char *argv[]){
 
     w.setRenderMode(Window::RENDER_WIREFRAME);
 
-    pc.scale(2.0f);
+    pc.scale(4.0f);
 
     while(!w.shouldClose()){
         w.clear(0.1f, 0.2f, 0.3f);
-        pc.rotate(Object::YW_PLANE, 0.05f);
+        //pc.rotate(Object::YW_PLANE, 0.05f);
         pc.rotate(Object::XW_PLANE, 0.01f);
-        pc.rotate(Object::ZW_PLANE, 0.02f);
+        //pc.rotate(Object::ZW_PLANE, 0.02f);
 
         w.update();
 

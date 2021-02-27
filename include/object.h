@@ -25,8 +25,8 @@ public:
     void create(vec5 *verts, int numVerts, unsigned int *Indices, int numIndices, glm::vec4 pos);
     void close();
 
-    void render(bool solid);
-    void render(bool solid, float scale);
+    void render(bool solid, bool perspective);
+    void render(bool solid, bool perspective, float scale);
 
     enum plane{XY_PLANE=0, XZ_PLANE=1, XW_PLANE=2, YZ_PLANE=3, YW_PLANE=4, ZW_PLANE=5};
     void translate(glm::vec4 dist);

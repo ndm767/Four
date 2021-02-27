@@ -53,30 +53,38 @@ void Object::create(vec5 *verts, int numVerts, unsigned int *Indices, int numInd
     }
 }
 
-void Object::render(bool solid){
+void Object::render(bool solid, bool perspective){
     std::vector<float> fverts;
     fourModelMat = product(transMat, scaleMat);
     fourModelMat = product(fourModelMat, rotMat);
     for(int i = 0; i<vertices.size(); i++){
         vec5 newVert = vertices[i];
         newVert = product(fourModelMat, newVert);
-        fverts.push_back(newVert[0]);
-        fverts.push_back(newVert[1]);
-        fverts.push_back(newVert[2]);
+        float mult = 0.0f;
+        if(perspective){
+            mult = newVert[3];
+        }
+        fverts.push_back(newVert[0]/(pow(2, mult)));
+        fverts.push_back(newVert[1]/(pow(2, mult)));
+        fverts.push_back(newVert[2]/(pow(2, mult)));
     }
 
     this->__render(fverts, solid);
 }
-void Object::render(bool solid, float scale){
+void Object::render(bool solid, bool perspective, float scale){
     std::vector<float> fverts;
     fourModelMat = product(transMat, scaleMat);
     fourModelMat = product(fourModelMat, rotMat);
     for(int i = 0; i<vertices.size(); i++){
         vec5 newVert = vertices[i];
         newVert = product(fourModelMat, newVert);
-        fverts.push_back(newVert[0] * scale);
-        fverts.push_back(newVert[1] * scale);
-        fverts.push_back(newVert[2] * scale);
+        float mult = 0.0f;
+        if(perspective){
+            mult = newVert[3];
+        }
+        fverts.push_back((newVert[0] * scale)/pow(2, mult));
+        fverts.push_back((newVert[1] * scale)/pow(2, mult));
+        fverts.push_back((newVert[2] * scale)/pow(2, mult));
     }
 
     this->__render(fverts, solid);
