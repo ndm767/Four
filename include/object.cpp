@@ -108,13 +108,13 @@ void Object::__render(std::vector<float> verts, bool solid){
         if(solid){
             glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, 0);
         }else{
-            glDrawElements(GL_LINE_LOOP, indices.size(), GL_UNSIGNED_INT, 0);
+            glDrawElements(GL_LINE_STRIP, indices.size(), GL_UNSIGNED_INT, 0);
         }
     }else{
         if(solid){
             glDrawArrays(GL_TRIANGLES, 0, verts.size()/3);
         }else{
-            glDrawArrays(GL_LINE_LOOP, 0, verts.size()/3);
+            glDrawArrays(GL_LINE_STRIP, 0, verts.size()/3);
         }
     }
 }
