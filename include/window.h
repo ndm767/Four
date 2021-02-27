@@ -63,6 +63,7 @@ private:
     void assignUniformVec4(glm::vec4 val, const char* name);
     GLuint solidProgram;
     GLuint wireframeProgram;
+    glm::vec2 viewportSize;
 };
 
 #endif
