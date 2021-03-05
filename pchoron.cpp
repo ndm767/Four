@@ -35,12 +35,13 @@ int main(int argc, char *argv[]){
     w.addToScene(&pc);
 
     w.setRenderMode(Window::RENDER_WIREFRAME);
+    //w.set4DProjection(Window::PROJECT_PERSPECTIVE);
 
     pc.scale(4.0f);
 
     while(!w.shouldClose()){
         w.clear(0.1f, 0.2f, 0.3f);
-        //pc.rotate(Object::YW_PLANE, 0.05f);
+        //pc.rotate(Object::YW_PLANE, 0.01f);
         pc.rotate(Object::XW_PLANE, 0.01f);
         //pc.rotate(Object::ZW_PLANE, 0.02f);
 
