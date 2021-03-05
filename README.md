@@ -11,7 +11,7 @@ Example: A pentachoron (5-cell) rotating about the yw-plane:
 - Dear ImGui integration
 - File/model loading
 - Premade geometries (hypercubes and pentachorons)
-- Test out perspective projection (still needs testing)
+- Test out perspective projection
 ## How to use
 Replace the GL3W include in object.h with wherever you gl3w.h file is located.  
 When compiling, include the C++ files in the include/ directory and use the compiler flags for glfw3 and gl3w.  
