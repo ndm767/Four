@@ -111,9 +111,7 @@ void Window::clear(float r, float g, float b, float a){
  */
 void Window::update(){
     GLuint wpLoc = glGetUniformLocation(wireframeProgram, "viewportSize");
-    GLuint sLoc = glGetUniformLocation(solidProgram, "viewportSize");
     glUniform2fv(wpLoc, 1, &viewportSize[0]);
-    glUniform2fv(sLoc, 1, &viewportSize[0]);
     for(int i = 0; i<objects.size(); i++){
         this->assignUniformMat4(objects[i]->modelMat, "modelMat");
         if(objects[i]->useColor){
