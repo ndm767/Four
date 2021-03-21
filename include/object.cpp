@@ -148,7 +148,6 @@ void Object::scale(glm::vec4 scalar){
 }
 
 void Object::rotate(plane p, float angle){
-    //rotate_self = rotation matrix
     if(p == XY_PLANE){
         //XY Plane
         mat5 xyRot = createIdentityMatrix();
