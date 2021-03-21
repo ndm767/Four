@@ -1,6 +1,6 @@
 # Four
 An (**incomplete**) 4d rendering library written in C++  
-Example: A pentachoron (5-cell) rotating about the yw-plane:  
+Example: An orthographically projected pentachoron (5-cell) rotating about the yw-plane:  
 <img src="https://raw.githubusercontent.com/ndm767/Four/main/pchoronYW.gif" alt="pchoron" width="201" height="211"> 
 ## What still needs to be done
 - Write documentation
