@@ -41,6 +41,7 @@ int main(int argc, char *argv[]){
 
     while(!w.shouldClose()){
         w.clear(0.1f, 0.2f, 0.3f);
+        
         //pc.rotate(Object::YW_PLANE, 0.01f);
         pc.rotate(Object::XW_PLANE, 0.01f);
         //pc.rotate(Object::ZW_PLANE, 0.02f);
