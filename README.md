@@ -12,6 +12,7 @@ Example: An orthographically projected pentachoron (5-cell) rotating about the y
 - File/model loading
 - Premade geometries (hypercubes and pentachorons)
 - Test out perspective projection
+- Investigate replacing GL3W with something else like GLEW
 ## How to use
 Replace the GL3W include in object.h with wherever you gl3w.h file is located.  
 When compiling, include the C++ files in the include/ directory and use the compiler flags for glfw3 and gl3w.  
