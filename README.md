@@ -4,6 +4,7 @@ Example: An orthographically projected pentachoron (5-cell) rotating about the y
 <img src="https://raw.githubusercontent.com/ndm767/Four/main/pchoronYW.gif" alt="pchoron" width="201" height="211"> 
 ## What still needs to be done
 - Write documentation
+- Write unit tests  
 - Get rid of flickering bug in solid mode
 - hide everything GLFW and GLM related
 - proper build system
