@@ -62,7 +62,7 @@ void Object::render(bool solid, bool perspective){
         newVert = product(fourModelMat, newVert);
         float mult = 0.0f;
         if(perspective){
-            mult = newVert[3];
+            mult = -1.0f * newVert[3];
         }
         fverts.push_back(newVert[0]/(pow(2, mult)));
         fverts.push_back(newVert[1]/(pow(2, mult)));
