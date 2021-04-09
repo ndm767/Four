@@ -9,7 +9,6 @@ Example: An orthographically projected pentachoron (5-cell) rotating about the y
 - hide everything GLFW and GLM related
 - proper build system
 - Camera Controls
-- Dear ImGui integration
 - File/model loading
 - Premade geometries (hypercubes and pentachorons)
 - Test out perspective projection
@@ -24,4 +23,3 @@ More detailed instructions are coming later, but for now, see `pchoron.cpp` and 
 - [GLFW3](https://www.glfw.org/)
 - [GL3W](https://github.com/skaslev/gl3w)
 - [GLM](https://github.com/g-truc/glm)
-- Dear ImGui (planned)  
