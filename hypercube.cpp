@@ -119,7 +119,7 @@ int main(int argc, char *argv[]){
     while(!w.shouldClose()){
         w.clear(0.1f, 0.2f, 0.3f);
 
-       o.rotate(Object::ZW_PLANE, 0.01f);
+        o.rotate(Object::ZW_PLANE, 0.01f);
 
         w.update();
 
