@@ -38,6 +38,8 @@ public:
     void setCustomColor(glm::vec4 *colorArray, int num);
     void setUniformColor(glm::vec4 color);
 
+    void setLineLoop(bool value);
+
     glm::mat4 modelMat; //model matrix for the 3d projection
     mat5 fourModelMat; //4d model matrix
     mat5 scaleMat;
@@ -47,6 +49,7 @@ public:
     glm::vec4 constColor = glm::vec4(1.0f, 0.0f, 0.0f, 1.0f);
 private:
     void __render(std::vector<float> verts, bool solid);
+    bool loopLine = false;
     vec5 position;
     std::vector<vec5> vertices;
     bool useIndexedRendering = false;

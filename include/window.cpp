@@ -111,6 +111,7 @@ void Window::clear(float r, float g, float b, float a){
  */
 void Window::update(){
     for(int i = 0; i<objects.size(); i++){
+        objects[i]->setLineLoop(this->useLineStrip);
         this->assignUniformMat4(objects[i]->modelMat, "modelMat");
         if(objects[i]->useColor){
             this->assignUniformBool(true, "useColor");
@@ -371,4 +372,8 @@ Window::projection Window::get4DProjection(){
     }else{
         return PROJECT_ORTHOGRAPHIC;
     }
+}
+
+void Window::setUseLineStrip(bool value){
+    this->useLineStrip = value;
 }

@@ -116,13 +116,21 @@ void Object::__render(std::vector<float> verts, bool solid){
         if(solid){
             glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, 0);
         }else{
-            glDrawElements(GL_LINE_STRIP, indices.size(), GL_UNSIGNED_INT, 0);
+            if(loopLine){
+                glDrawElements(GL_LINE_STRIP, indices.size(), GL_UNSIGNED_INT, 0);
+            }else{
+                glDrawElements(GL_LINES, indices.size(), GL_UNSIGNED_INT, 0);
+            }
         }
     }else{
         if(solid){
             glDrawArrays(GL_TRIANGLES, 0, verts.size()/3);
         }else{
-            glDrawArrays(GL_LINE_STRIP, 0, verts.size()/3);
+            if(loopLine){
+                glDrawArrays(GL_LINE_STRIP, 0, verts.size()/3);
+            }else{
+                glDrawArrays(GL_LINES, 0, verts.size()/3);
+            }
         }
     }
 }
@@ -214,4 +222,8 @@ void Object::setCustomColor(glm::vec4 *colorArray, int num){
 void Object::setUniformColor(glm::vec4 color){
     useColor = false;
     constColor = color;
+}
+
+void Object::setLineLoop(bool value){
+    this->loopLine = value;
 }

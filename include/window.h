@@ -52,7 +52,10 @@ public:
     void set4DProjection(projection proj);
     projection get4DProjection();
 
+    void setUseLineStrip(bool value);
+
 private:
+    bool useLineStrip = false;
     int width, height;
     const char* name;
     GLFWwindow* window;
