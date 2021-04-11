@@ -114,7 +114,7 @@ int main(int argc, char *argv[]){
     w.addToScene(&o);
 
     w.setRenderMode(Window::RENDER_WIREFRAME);
-    w.set4DProjection(Window::PROJECT_PERSPECTIVE);
+    //w.set4DProjection(Window::PROJECT_PERSPECTIVE);
 
     while(!w.shouldClose()){
         w.clear(0.1f, 0.2f, 0.3f);
@@ -125,6 +125,12 @@ int main(int argc, char *argv[]){
 
         if(w.getKeyPress(GLFW_KEY_ESCAPE)){
             w.setShouldClose(true);
+        }
+        if(w.getKeyPress(GLFW_KEY_SPACE)){
+            w.set4DProjection(Window::PROJECT_ORTHOGRAPHIC);
+        }
+        if(w.getKeyPress(GLFW_KEY_LEFT_CONTROL)){
+            w.set4DProjection(Window::PROJECT_PERSPECTIVE);
         }
 
     }
