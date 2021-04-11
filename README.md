@@ -7,7 +7,7 @@ Example: A 4d-3d perspectively projected and 3d-2d orthographically projected te
 ## What still needs to be done
 - Write documentation
 - Write unit tests  
-- Get rid of flickering bug in solid mode
+- Solid and wireframe mode interoperability
 - hide everything GLFW and GLM related
 - proper build system
 - Camera Controls
