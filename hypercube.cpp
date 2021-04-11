@@ -101,6 +101,25 @@ unsigned int hcubeinds[144]={
     // the other cubes aren't needed because this is wireframe
 };
 
+glm::vec4 hcubeColors[16] = {
+    glm::vec4(1.0f, 0.0f, 0.0f, 1.0f),
+    glm::vec4(1.0f, 0.0f, 0.0f, 1.0f),
+    glm::vec4(1.0f, 0.0f, 0.0f, 1.0f),
+    glm::vec4(1.0f, 0.0f, 0.0f, 1.0f),
+    glm::vec4(1.0f, 0.0f, 0.0f, 1.0f),
+    glm::vec4(1.0f, 0.0f, 0.0f, 1.0f),
+    glm::vec4(1.0f, 0.0f, 0.0f, 1.0f),
+    glm::vec4(1.0f, 0.0f, 0.0f, 1.0f),
+    glm::vec4(0.0f, 1.0f, 0.0f, 1.0f),
+    glm::vec4(0.0f, 1.0f, 0.0f, 1.0f),
+    glm::vec4(0.0f, 1.0f, 0.0f, 1.0f),
+    glm::vec4(0.0f, 1.0f, 0.0f, 1.0f),
+    glm::vec4(0.0f, 1.0f, 0.0f, 1.0f),
+    glm::vec4(0.0f, 1.0f, 0.0f, 1.0f),
+    glm::vec4(0.0f, 1.0f, 0.0f, 1.0f),
+    glm::vec4(0.0f, 1.0f, 0.0f, 1.0f)
+};
+
 int main(int argc, char *argv[]){
     Window w;
     w.create();
@@ -111,6 +130,7 @@ int main(int argc, char *argv[]){
 
     Object o;
     o.create(hcubeverts, 16, hcubeinds, 144);
+    o.setCustomColor(&hcubeColors[0], 16);
     w.addToScene(&o);
 
     w.setRenderMode(Window::RENDER_WIREFRAME);
