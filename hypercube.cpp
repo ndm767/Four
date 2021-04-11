@@ -114,7 +114,7 @@ int main(int argc, char *argv[]){
     w.addToScene(&o);
 
     w.setRenderMode(Window::RENDER_WIREFRAME);
-    //w.set4DProjection(Window::PROJECT_PERSPECTIVE);
+    w.set4DProjection(Window::PROJECT_PERSPECTIVE);
 
     while(!w.shouldClose()){
         w.clear(0.1f, 0.2f, 0.3f);
