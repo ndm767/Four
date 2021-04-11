@@ -135,15 +135,15 @@ void Object::__render(std::vector<float> verts, bool solid){
     }
 }
 
-void Object::translate(glm::vec4 dist){
-    transMat[0][4] += dist[0];
-    transMat[1][4] += dist[1];
-    transMat[2][4] += dist[2];
-    transMat[3][4] += dist[3];
-    position[0] += dist[0];
-    position[1] += dist[1];
-    position[2] += dist[2];
-    position[3] += dist[3];
+void Object::translate(float x, float y, float z, float w){
+    transMat[0][4] += x;
+    transMat[1][4] += y;
+    transMat[2][4] += z;
+    transMat[3][4] += w;
+    position[0] += x;
+    position[1] += y;
+    position[2] += z;
+    position[3] += w;
     position[4] = 1;
 }
 void Object::scale(float scalar){

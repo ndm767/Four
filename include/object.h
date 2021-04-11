@@ -29,7 +29,7 @@ public:
     void render(bool solid, bool perspective, float scale);
 
     enum plane{XY_PLANE=0, XZ_PLANE=1, XW_PLANE=2, YZ_PLANE=3, YW_PLANE=4, ZW_PLANE=5};
-    void translate(glm::vec4 dist);
+    void translate(float x, float y, float z, float w);
     void rotate(plane p, float angle);
     void scale(float scalar);
     void scale(glm::vec4 scalar);

@@ -36,6 +36,7 @@ glm::vec4 triColors[3] = {
 int main(int argc, char* argv[]){
     Window w;
     w.create();
+    w.setUseLineStrip(true);
 
     Camera c;
     c.create();
@@ -56,7 +57,7 @@ int main(int argc, char* argv[]){
     while(!w.shouldClose()){
         w.clear(0.1f, 0.2f, 0.3f);
 
-        o.translate(glm::vec4(0.0f, sin(glfwGetTime())/100.0f, 0.0f, 0.0f));
+        o.translate(0.0f, sin(glfwGetTime())/100.0f, 0.0f, 0.0f);
 
         w.update();
 
