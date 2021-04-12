@@ -129,7 +129,7 @@ int main(int argc, char *argv[]){
     w.setActiveCamera(&c);
 
     Object o;
-    o.create(hcubeverts, 16, hcubeinds, 144);
+    o.create(&hcubeverts[0], 16, &hcubeinds[0], 144);
     o.setCustomColor(&hcubeColors[0], 16);
     w.addToScene(&o);
 
