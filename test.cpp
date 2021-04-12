@@ -36,6 +36,7 @@ glm::vec4 triColors[3] = {
 int main(int argc, char* argv[]){
     Window w;
     w.create();
+    //use GL_LINE_STRIP instead of GL_LINES
     w.setUseLineStrip(true);
 
     Camera c;
