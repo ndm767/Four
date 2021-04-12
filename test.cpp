@@ -44,12 +44,12 @@ int main(int argc, char* argv[]){
     w.setActiveCamera(&c);
 
     Object o;
-    o.create(pcVerts, 5, pcInds, 30);
+    o.create(&pcVerts[0], 5, &pcInds[0], 30);
     //o.setUniformColor(glm::vec4(1.0f, 0.0f, 1.0f, 1.0f));
     w.addToScene(&o);
 
     Object o2;
-    o2.create(tri, 3);
+    o2.create(&tri[0], 3);
     o2.setCustomColor(&triColors[0], 3);
     w.addToScene(&o2);
 
