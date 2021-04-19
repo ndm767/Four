@@ -13,14 +13,12 @@ Example: A 4d-3d perspectively projected and 3d-2d orthographically projected te
 - Camera Controls
 - File/model loading
 - Premade geometries (hypercubes and pentachorons)
-- Investigate replacing GL3W with something else like GLEW
 ## How to use
-Replace the GL3W include in object.h with wherever you gl3w.h file is located.  
-When compiling, include the C++ files in the include/ directory and use the compiler flags for glfw3 and gl3w.  
+When compiling, include the C++ files in the include/ directory and use the compiler flags for glfw3 and glew.  
 **This library uses C++11 features**  
 More detailed instructions are coming later, but for now, see `hypercube.cpp`, `pchoron.cpp`, and `test.cpp` for examples.
 ## Dependencies
 - OpenGL 3.3
 - [GLFW3](https://www.glfw.org/)
-- [GL3W](https://github.com/skaslev/gl3w)
+- [GLEW](http://glew.sourceforge.net/)
 - [GLM](https://github.com/g-truc/glm)

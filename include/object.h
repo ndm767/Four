@@ -14,7 +14,7 @@
 
 #include "vec5.h"
 #include "mat5.h"
-#include <GL/gl3w.h>
+#include <GL/glew.h>
 #include <vector>
 
 class Object{

@@ -53,8 +53,8 @@ void Window::create(int w, int h, const char* n){
     window = glfwCreateWindow(w, h, n, NULL, NULL);
     glfwMakeContextCurrent(window);
     //actually load the core profile
-    gl3wInit();
-
+    glewExperimental = true;
+    glewInit();
     //initialize z-depth buffering
     glEnable(GL_DEPTH_TEST);
     glDepthFunc(GL_LESS);
