@@ -45,6 +45,7 @@ void Window::create(int w, int h, const char* n){
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+    glfwWindowHint(GLFW_SAMPLES, 4);
     //because apple hates anything that wasn't made in-house
     #ifdef __APPLE__
         glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GLFW_TRUE);
@@ -58,6 +59,9 @@ void Window::create(int w, int h, const char* n){
     //initialize z-depth buffering
     glEnable(GL_DEPTH_TEST);
     glDepthFunc(GL_LESS);
+
+    //antialiasing
+    glEnable(GL_MULTISAMPLE);
 
     this->createShaders();
 }
