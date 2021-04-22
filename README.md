@@ -9,13 +9,18 @@ Example: A 4d-3d perspectively projected and 3d-2d orthographically projected te
 - Write unit tests  
 - Solid and wireframe mode interoperability
 - hide everything GLFW and GLM related
-- proper build system
+- write build instructions for Windows
 - Camera Controls
 - File/model loading
 - Premade geometries (hypercubes and pentachorons)
 ## How to use
 When compiling, include the C++ files in the include/ directory and use the compiler flags for glfw3 and glew.  
 **This library uses C++11 features**  
+Build examples for `hypercube.cpp`:  
+**MacOS (tested on OS X 10.15.7):**  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`g++ hypercube.cpp include/*.cpp -o hypercube -lGLFW -lglew -framework OpenGL -std=c++11`  
+**Linux (tested on Fedora 33):**  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`g++ hypercube.cpp include/*.cpp -o hypercube -lGL -lGLEW -lglfw -std=c++11`  
 More detailed instructions are coming later, but for now, see `hypercube.cpp`, `pchoron.cpp`, and `test.cpp` for examples.
 ## Dependencies
 - OpenGL 3.3
