@@ -14,7 +14,10 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <stdio.h>
 
-
+/**
+ * @brief 5d vector class
+ * 
+ */
 class vec5{
 public:
     vec5();
@@ -26,7 +29,10 @@ public:
     }
 };
 
-
+/**
+ * @brief Construct a new empty vec5 object
+ * 
+ */
 inline vec5::vec5(){
     val[0] = 0.0f;
     val[1] = 0.0f;
@@ -34,7 +40,15 @@ inline vec5::vec5(){
     val[3] = 0.0f;
     val[4] = 0.0f;
 }
-
+/**
+ * @brief Construct a new vec5 object from 5 floats
+ * 
+ * @param a 
+ * @param b 
+ * @param c 
+ * @param d 
+ * @param e 
+ */
 inline vec5::vec5(float a, float b, float c, float d, float e){
     val[0] = a;
     val[1] = b;
@@ -42,11 +56,22 @@ inline vec5::vec5(float a, float b, float c, float d, float e){
     val[3] = d;
     val[4] = e;
 }
-
+/**
+ * @brief Construct a new vec5 object from a glm::vec4 and a float
+ * 
+ * @param a 
+ * @param b 
+ */
 inline vec5::vec5(glm::vec4 a, float b){
     vec5(a.x, a.y, a.z, a.w, b);
 }
-
+/**
+ * @brief Dot product of two 5d vectors
+ * 
+ * @param a first vector
+ * @param b second vector
+ * @return float 
+ */
 inline float dot(vec5 a, vec5 b){
     float ret = 0.0f;
     ret += a[0] * b[0];
@@ -56,7 +81,11 @@ inline float dot(vec5 a, vec5 b){
     ret += a[4] * b[4];
     return ret;
 }
-
+/**
+ * @brief Prints vector for debugging purposes
+ *
+ * @param a vector to be printed.
+ */
 inline void printVec(vec5 a){
     printf("[%f, %f, %f, %f, %f]\n", a[0], a[1], a[2], a[3], a[4]);
 }

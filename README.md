@@ -4,8 +4,7 @@ Example: An orthographically projected pentachoron (5-cell) rotating about the y
 <img src="https://raw.githubusercontent.com/ndm767/Four/main/pchoronYW.gif" alt="pchoron" width="201" height="211">  
 Example: A 4d-3d perspectively projected and 3d-2d orthographically projected tesseract rotating about the zw-plane (the code for this can be seen in [`hypercube.cpp`](https://github.com/ndm767/Four/blob/main/hypercube.cpp)):  
 <img src="https://raw.githubusercontent.com/ndm767/Four/main/hypercubeZW.gif" alt="hcube" width="200" height="200">  
-## What still needs to be done
-- Write documentation
+## What still needs to be done  
 - Write unit tests  
 - Solid and wireframe mode interoperability
 - hide everything GLFW and GLM related

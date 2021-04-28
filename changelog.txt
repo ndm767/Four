@@ -1,0 +1,8 @@
+MAJOR CHANGES
+===============
+2/23/21 added pentachoron example
+3/5/21 added perspective projection
+4/10/21 added option to use GL_LINE_STRIP instead of GL_LINES, added hypercube example
+4/19/21 replaced gl3w with GLEW
+4/22/21 added anti-aliasing
+4/28/21 caught up on documentation

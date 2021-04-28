@@ -14,25 +14,44 @@
 #include "vec5.h"
 #include <stdio.h>
 
-
+/**
+ * @brief 5d matrix class
+ * 
+ */
 class mat5{
 public:
     vec5 rows[5];
     mat5();
     mat5(glm::vec4 a, glm::vec4 b, glm::vec4 c, glm::vec4 d, glm::vec4 e);
     mat5(vec5 a, vec5 b, vec5 c, vec5 d, vec5 e);
-
+    /**
+     * @brief allows access to the rows of the matrix as if it was an array
+     * 
+     * @param num 
+     * @return vec5& 
+     */
     vec5& operator[](int num){
         return rows[num];
     }
 };
-
+/**
+ * @brief Construct a new empty mat5 object
+ * 
+ */
 inline mat5::mat5(){
     vec5 z = vec5();
     mat5(z, z, z, z, z);
 }
 
-
+/**
+ * @brief Construct a new mat5 object from 5 vectors
+ *
+ * @param a first row
+ * @param b second row
+ * @param c third row
+ * @param d fourth row
+ * @param e fifth row
+ */
 inline mat5::mat5(vec5 a, vec5 b, vec5 c, vec5 d, vec5 e){
     rows[0] = a;
     rows[1] = b;
@@ -41,6 +60,11 @@ inline mat5::mat5(vec5 a, vec5 b, vec5 c, vec5 d, vec5 e){
     rows[4] = e;
 }
 
+/**
+ * @brief Create a 5d identity matrix (matrix with all 0's except for 1's on the diagonal)
+ * 
+ * @return mat5 
+ */
 inline mat5 createIdentityMatrix(){
     //matrix with all zeroes
     mat5 ret = mat5();
@@ -53,6 +77,13 @@ inline mat5 createIdentityMatrix(){
     return ret;
 }
 
+/**
+ * @brief Gives the product of two 5d matrices
+ *
+ * @param a the first matrix to be multiplied
+ * @param b the second matrix to be multiplied
+ * @return mat5 
+ */
 inline mat5 product(mat5 a, mat5 b){
     /*
     in 2x2:
@@ -78,6 +109,14 @@ inline mat5 product(mat5 a, mat5 b){
    return ret;
 }
 
+/**
+ * @brief Gives the product of a 5d matrix and 5d vector
+ *
+ * @param a the matrix to be multiplied
+ * @param b the vector to be multiplied
+ * @return vec5 
+ */
+
 inline vec5 product(mat5 a, vec5 b){
     vec5 ret = vec5();
 
@@ -92,6 +131,11 @@ inline vec5 product(mat5 a, vec5 b){
     return ret;
 }
 
+/**
+ * @brief prints a mat5 for debugging purposes
+ *
+ * @param mat the matrix to be printed
+ */
 inline void printMatrix(mat5 mat){
     for(int x = 0; x<5; x++){
         for(int y = 0; y<5; y++){

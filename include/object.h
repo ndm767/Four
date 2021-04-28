@@ -17,6 +17,10 @@
 #include <GL/glew.h>
 #include <vector>
 
+/**
+ * @brief The base renderable object class.
+ *  Has functions to create, render, translate, and modify objects in a variety of ways
+ */
 class Object{
 public:
     void create(vec5 *verts, int num);

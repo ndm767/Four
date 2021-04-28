@@ -13,6 +13,13 @@
 
 #include "object.h"
 
+
+/**
+ * @brief The Camera class, mostly used as a placeholder right now until custom cameras are implemented.
+ * Its just an object with two other matrices
+ * I will have to change that once I make them controllable.
+ * 
+ */
 class Camera : public Object{
 public:
     void create();

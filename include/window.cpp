@@ -367,7 +367,12 @@ void Window::assignUniformVec4(glm::vec4 val, const char* name){
         glUniform4fv(loc, 1, &val[0]);
     }
 }
-
+/**
+ * @brief Internal function to assign a glsl uniform bool variable
+ * 
+ * @param val the value of the uniform
+ * @param name the name of the uniform
+ */
 void Window::assignUniformBool(bool val, const char* name){
     if(renderSolid){
         GLuint loc = glGetUniformLocation(solidProgram, name);
@@ -377,15 +382,27 @@ void Window::assignUniformBool(bool val, const char* name){
         glUniform1i(loc, val);
     }
 }
-
+/**
+ * @brief Sets the active camera for the scene
+ *
+ * @param cam Pointer to the camera to be set
+ */
 void Window::setActiveCamera(Camera *cam){
     this->c = cam;
 }
-
+/**
+ * @brief Adds an object to the object list in the scene
+ *
+ * @param o Pointer to the object to be added
+ */
 void Window::addToScene(Object *o){
     objects.push_back(o);
 }
-
+/**
+ * @brief Sets whether the library should render solid or wireframe
+ *
+ * @param mode either Window::RENDER_SOLID or Window::RENDER_WIREFRAME
+ */
 void Window::setRenderMode(renderMode mode){
     if(mode == RENDER_SOLID){
         renderSolid = true;
@@ -394,7 +411,11 @@ void Window::setRenderMode(renderMode mode){
         renderSolid = false;
     }
 }
-
+/**
+ * @brief returns the render mode the library is currently useing (solid or wireframe)
+ * 
+ * @return Window::renderMode 
+ */
 Window::renderMode Window::getRenderMode(){
     if(renderSolid){
         return Window::RENDER_SOLID;
@@ -402,7 +423,11 @@ Window::renderMode Window::getRenderMode(){
         return Window::RENDER_WIREFRAME;
     }
 }
-
+/**
+ * @brief sets the 4d-3d projection the library uses
+ *
+ * @param proj either Window::PROJECT_ORTHOGRAPHIC or Window::PROJECT_PERSPECTIVE
+ */
 void Window::set4DProjection(projection proj){
     if(proj == PROJECT_ORTHOGRAPHIC){
         perspective = false;
@@ -410,7 +435,11 @@ void Window::set4DProjection(projection proj){
         perspective = true;
     }
 }
-
+/**
+ * @brief returns the type of 4d-3d projection the library is using (orthographic or perspective)
+ * 
+ * @return Window::projection 
+ */
 Window::projection Window::get4DProjection(){
     if(perspective){
         return PROJECT_PERSPECTIVE;
@@ -418,7 +447,11 @@ Window::projection Window::get4DProjection(){
         return PROJECT_ORTHOGRAPHIC;
     }
 }
-
+/**
+ * @brief Set whether or not to use GL_LINES or GL_LINE_STRIP. Only applied in wireframe mode
+ *
+ * @param value true if you want to use GL_LINE_STRIP, false if you want to use GL_LINES
+ */
 void Window::setUseLineStrip(bool value){
     this->useLineStrip = value;
 }
