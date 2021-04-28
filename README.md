@@ -12,6 +12,7 @@ Example: A 4d-3d perspectively projected and 3d-2d orthographically projected te
 - write build instructions for Windows
 - Camera Controls
 - File/model loading
+- Clarify private and public functions  
 - Premade geometries (hypercubes and pentachorons)
 ## How to use
 When compiling, include the C++ files in the include/ directory and use the compiler flags for glfw3 and glew.  
