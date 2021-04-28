@@ -65,7 +65,7 @@ private:
     bool renderSolid;
     void createShaders();
     void useShader(bool solid);
-    void assignUniformMat4(glm::mat4 uni, const char* name);
+    void assignUniformMat4(glm::mat4 val, const char* name);
     void assignUniformBool(bool val, const char* name);
     void assignWireframeSolid();
     void assignUniformVec4(glm::vec4 val, const char* name);

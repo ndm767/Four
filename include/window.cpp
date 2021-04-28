@@ -136,7 +136,12 @@ void Window::update(){
     glfwSwapBuffers(window);
     glfwPollEvents();
 }
-
+/**
+ * @brief returns whether or not the Window has been set to close
+ * 
+ * @return true 
+ * @return false 
+ */
 bool Window::shouldClose(){
     if(glfwWindowShouldClose(window)){
         return true;
@@ -144,10 +149,21 @@ bool Window::shouldClose(){
         return false;
     }
 }
-
+/**
+ * @brief sets whether or not the Window should close
+ *
+ * @param state true if the Window should close and false if it shouldn't
+ */
 void Window::setShouldClose(bool state){
     glfwSetWindowShouldClose(window, (int)state);
 }
+/**
+ * @brief gets whether or not a key is pressed
+ *
+ * @param key A key given in GLFW form (e.g. GLFW_KEY_ESCAPE)
+ * @return true 
+ * @return false 
+ */
 
 bool Window::getKeyPress(int key){
     if(glfwGetKey(window, key) == GLFW_PRESS){
@@ -155,12 +171,23 @@ bool Window::getKeyPress(int key){
     }
     return false;
 }
+/**
+ * @brief gets whether or not a key has been released
+ *
+ * @param key A key given in GLFW form (e.g. GLFW_KEY_ESCAPE)
+ * @return true
+ * @return false 
+ */
 bool Window::getKeyUp(int key){
     if(glfwGetKey(window, key) == GLFW_RELEASE){
         return true;
     }
     return false;
 }
+/**
+ * @brief Internal function used to create the shaders and shader programs for the library at startup
+ * 
+ */
 void Window::createShaders(){
     GLuint vertexShader, fragmentShader, geometryShader;
     const char* vertSrc = R""(
@@ -294,7 +321,11 @@ void Window::createShaders(){
     glDeleteShader(fragmentShader);
     glDeleteShader(geometryShader);
 }
-
+/**
+ * @brief Internal function used to set which shader program the library uses (solid vs wireframe)
+ * 
+ * @param solid 
+ */
 void Window::useShader(bool solid){
     if(solid){
         this->assignUniformMat4(this->c->viewMat, "viewMat");
@@ -306,17 +337,27 @@ void Window::useShader(bool solid){
         glUseProgram(wireframeProgram);
     }
 }
-
-void Window::assignUniformMat4(glm::mat4 uni, const char* name){
+/**
+ * @brief Internal function to assign a glsl uniform mat4 variable
+ * 
+ * @param uni the value of the uniform
+ * @param name the name of the uniform
+ */
+void Window::assignUniformMat4(glm::mat4 val, const char* name){
     if(renderSolid){
         GLuint loc = glGetUniformLocation(solidProgram, name);
-        glUniformMatrix4fv(loc, 1, GL_FALSE, &uni[0][0]);
+        glUniformMatrix4fv(loc, 1, GL_FALSE, &val[0][0]);
     }else{
         GLuint loc = glGetUniformLocation(wireframeProgram, name);
-        glUniformMatrix4fv(loc, 1, GL_FALSE, &uni[0][0]);
+        glUniformMatrix4fv(loc, 1, GL_FALSE, &val[0][0]);
     }
 }
-
+/**
+ * @brief Internal function to assign a glsl uniform vec4 variable
+ *
+ * @param val the value of the uniform
+ * @param name the name of the uniform
+ */
 void Window::assignUniformVec4(glm::vec4 val, const char* name){
     if(renderSolid){
         GLuint loc = glGetUniformLocation(solidProgram, name);
