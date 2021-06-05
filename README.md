@@ -1,6 +1,5 @@
 # Four
 An (**incomplete**) 4d rendering library written in C++  
-**This project is not abandoned! I am simply working on a very large update. Thank you for your patience!**  
 Example: An orthographically projected pentachoron (5-cell) rotating about the yw-plane (the code for this can be seen in [`pchoron.cpp`](https://github.com/ndm767/Four/blob/main/pchoron.cpp)):  
 <img src="https://raw.githubusercontent.com/ndm767/Four/main/pchoronYW.gif" alt="pchoron" width="201" height="211">  
 Example: A 4d-3d perspectively projected and 3d-2d orthographically projected tesseract rotating about the zw-plane (the code for this can be seen in [`hypercube.cpp`](https://github.com/ndm767/Four/blob/main/hypercube.cpp)):  
