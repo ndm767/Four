@@ -50,7 +50,7 @@ int main(int argc, char *argv[]){
 
         w.update();
 
-        if(w.getKeyPress(GLFW_KEY_ESCAPE)){
+        if(w.getKeyPress(SDL_SCANCODE_ESCAPE)){
             w.setShouldClose(true);
         }
     }

@@ -40,22 +40,25 @@ void Window::create(int w, int h, const char* n){
     height = h;
     name = n;
 
-    glfwInit();
-    //create a context of version 3.3 (minimum possible) and use the core profile
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-    glfwWindowHint(GLFW_SAMPLES, 4);
-    //because apple hates anything that wasn't made in-house
-    #ifdef __APPLE__
-        glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GLFW_TRUE);
-    #endif
-    //create the window
-    window = glfwCreateWindow(w, h, n, NULL, NULL);
-    glfwMakeContextCurrent(window);
+    SDL_Init(SDL_INIT_VIDEO);
+    //create a context of version 3.3 and use core profile
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
+    SDL_GL_SetAttribute(SDL_GL_STENCIL_SIZE, 8);
+
+    //make it so the screen doesn't flicker on KDE
+    SDL_SetHint(SDL_HINT_VIDEO_X11_NET_WM_BYPASS_COMPOSITOR, "0");
+
+    //create the window and context
+    window = SDL_CreateWindow(n, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, w, h, SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL);
+    context = SDL_GL_CreateContext(window);
+    SDL_GL_MakeCurrent(window, context);
+
     //actually load the core profile
     glewExperimental = true;
     glewInit();
+
     //initialize z-depth buffering
     glEnable(GL_DEPTH_TEST);
     glDepthFunc(GL_LESS);
@@ -73,8 +76,10 @@ void Window::create(int w, int h, const char* n){
 void Window::close(){
     glDeleteProgram(solidProgram);
     glDeleteProgram(wireframeProgram);
-    glfwDestroyWindow(window);
-    glfwTerminate();
+
+    SDL_GL_DeleteContext(context);
+    SDL_DestroyWindow(window);
+    SDL_Quit();
 }
 /**
  * @brief clear screen with a black background
@@ -133,8 +138,8 @@ void Window::update(){
         }
     }
 
-    glfwSwapBuffers(window);
-    glfwPollEvents();
+    SDL_GL_SwapWindow(window);
+    SDL_PollEvent(&e);
 }
 /**
  * @brief returns whether or not the Window has been set to close
@@ -143,11 +148,7 @@ void Window::update(){
  * @return false 
  */
 bool Window::shouldClose(){
-    if(glfwWindowShouldClose(window)){
-        return true;
-    }else{
-        return false;
-    }
+    return winShouldClose;
 }
 /**
  * @brief sets whether or not the Window should close
@@ -155,7 +156,7 @@ bool Window::shouldClose(){
  * @param state true if the Window should close and false if it shouldn't
  */
 void Window::setShouldClose(bool state){
-    glfwSetWindowShouldClose(window, (int)state);
+    winShouldClose = state;
 }
 /**
  * @brief gets whether or not a key is pressed
@@ -165,9 +166,11 @@ void Window::setShouldClose(bool state){
  * @return false 
  */
 
-bool Window::getKeyPress(int key){
-    if(glfwGetKey(window, key) == GLFW_PRESS){
-        return true;
+bool Window::getKeyPress(SDL_Scancode key){
+    if(e.type == SDL_KEYDOWN){
+        if(e.key.keysym.scancode == key){
+            return true;
+        }
     }
     return false;
 }
@@ -178,9 +181,11 @@ bool Window::getKeyPress(int key){
  * @return true
  * @return false 
  */
-bool Window::getKeyUp(int key){
-    if(glfwGetKey(window, key) == GLFW_RELEASE){
-        return true;
+bool Window::getKeyUp(SDL_Scancode key){
+    if(e.type == SDL_KEYUP){
+        if(e.key.keysym.scancode == key){
+            return true;
+        }
     }
     return false;
 }

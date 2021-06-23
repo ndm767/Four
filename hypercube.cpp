@@ -143,13 +143,13 @@ int main(int argc, char *argv[]){
 
         w.update();
 
-        if(w.getKeyPress(GLFW_KEY_ESCAPE)){
+        if(w.getKeyPress(SDL_SCANCODE_ESCAPE)){
             w.setShouldClose(true);
         }
-        if(w.getKeyPress(GLFW_KEY_SPACE)){
+        if(w.getKeyPress(SDL_SCANCODE_SPACE)){
             w.set4DProjection(Window::PROJECT_ORTHOGRAPHIC);
         }
-        if(w.getKeyPress(GLFW_KEY_LEFT_CONTROL)){
+        if(w.getKeyPress(SDL_SCANCODE_LCTRL)){
             w.set4DProjection(Window::PROJECT_PERSPECTIVE);
         }
 

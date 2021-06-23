@@ -6,3 +6,4 @@ MAJOR CHANGES
 4/19/21 replaced gl3w with GLEW
 4/22/21 added anti-aliasing
 4/28/21 caught up on documentation
+6/23/21 switched from GLFW to SDL2

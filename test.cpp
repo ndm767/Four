@@ -62,25 +62,25 @@ int main(int argc, char* argv[]){
 
         w.update();
 
-        if(w.getKeyPress(GLFW_KEY_ESCAPE)){
+        if(w.getKeyPress(SDL_SCANCODE_ESCAPE)){
             w.setShouldClose(true);
         }
-        if(w.getKeyPress(GLFW_KEY_W)){
+        if(w.getKeyPress(SDL_SCANCODE_W)){
             o.scale(glm::vec4(1.1f, 1.1f, 1.1f, 1.1f));
         }
-        if(w.getKeyPress(GLFW_KEY_S)){
+        if(w.getKeyPress(SDL_SCANCODE_S)){
             o.scale(glm::vec4(0.9f, 0.9f, 0.9f, 0.9f));
         }
-        if(w.getKeyPress(GLFW_KEY_A)){
+        if(w.getKeyPress(SDL_SCANCODE_A)){
             o.rotate(Object::YW_PLANE, -0.1f);
         }
-        if(w.getKeyPress(GLFW_KEY_D)){
+        if(w.getKeyPress(SDL_SCANCODE_D)){
             o.rotate(Object::YW_PLANE, 0.1f);
         }
-        if(w.getKeyPress(GLFW_KEY_LEFT_CONTROL)){
+        if(w.getKeyPress(SDL_SCANCODE_LCTRL)){
             w.setRenderMode(Window::RENDER_WIREFRAME);
         }
-        if(w.getKeyPress(GLFW_KEY_LEFT_SHIFT)){
+        if(w.getKeyPress(SDL_SCANCODE_LSHIFT)){
             w.setRenderMode(Window::RENDER_SOLID);
         }
     }

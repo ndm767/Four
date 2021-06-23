@@ -14,7 +14,7 @@
 
 #include "object.h"
 #include "camera.h"
-#include <GLFW/glfw3.h>
+#include <SDL2/SDL.h>
 #include <vector>
 #include "error.h"
 
@@ -38,8 +38,8 @@ public:
 
     bool shouldClose();
     void setShouldClose(bool state);
-    bool getKeyPress(int key);
-    bool getKeyUp(int key);
+    bool getKeyPress(SDL_Scancode key);
+    bool getKeyUp(SDL_Scancode key);
 
     void addToScene(Object *o);
     void setActiveCamera(Camera *cam);
@@ -58,7 +58,10 @@ private:
     bool useLineStrip = false;
     int width, height;
     const char* name;
-    GLFWwindow* window;
+    SDL_Window* window;
+    SDL_GLContext context;
+    bool winShouldClose = false;
+    SDL_Event e;
     std::vector<Object*> objects;
     Camera *c;
     bool perspective = false;
