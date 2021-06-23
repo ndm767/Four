@@ -7,7 +7,8 @@ Example: A 4d-3d perspectively projected and 3d-2d orthographically projected te
 ## What still needs to be done  
 - Write unit tests  
 - Solid and wireframe mode interoperability
-- hide everything GLFW and GLM related
+- hide everything GLM related
+- switch from GLFW3 to SDL2 for Linux compatibility
 - write build instructions for Windows
 - Camera Controls
 - File/model loading
