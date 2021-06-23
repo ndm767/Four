@@ -21,7 +21,7 @@ Build examples for `hypercube.cpp`:
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`g++ hypercube.cpp include/*.cpp -o hypercube -lGLFW -lglew -framework OpenGL -std=c++11`  
 **Linux (tested on Fedora 33):**  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`g++ hypercube.cpp include/*.cpp -o hypercube -lGL -lGLEW -lglfw -std=c++11`  
-**Please note that GLFW may display strange behavior on Wayland and some versions may not work on Xorg**  
+**Please note that GLFW may display strange behavior on Wayland and some versions (>3.2) may not work on Xorg**  
 More detailed instructions are coming later, but for now, see `hypercube.cpp`, `pchoron.cpp`, and `test.cpp` for examples.
 ## Dependencies
 - OpenGL 3.3
